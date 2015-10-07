@@ -1,3 +1,4 @@
+
 In this project, you will write a simulation of asteroids.  This is a
 variation on the classic asteroids game, but for now, there's no
 player input.  There are two types of object on the screen -

@@ -45,4 +45,62 @@ class Asteroid {
   endShape(CLOSE);
 }
 
+  public void render() { 
+   fill(10,10,150); 
+   polygon(center.x,center.y,this.radius(),size);
+  }
+  
+   int childShape() {
+   return size-1;
+  }
+  
+  boolean canSplit() {
+    if (size > 4) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+  
+  float radius() {
+   if (size == 4) {
+     return 10;
+   } else if (size == 5) {
+     return 12.7;
+   } else if (size == 6) {
+     return 16;
+   } else if (size == 7) {
+     return 20.2;
+   } else if (size == 8) {
+     return 25.4;
+   }
+     else {
+       return -1;
+     }
+    
+  }
+  
+  Pair childVelocities() {
+   Pair<PVector, PVector> h;
+   PVector v1 = PVector.mult(v.copy(),1.1);
+   PVector v2 = PVector.mult(v.copy(),1.1);
+   v1.rotate(0.523);
+   v2.rotate(-0.523);
+   h = new Pair(v1,v2);
+   return h;
+    
+  }
+  
+  Pair children() {
+    Pair<PVector,PVector> o = childVelocities();
+    Asteroid f = new Asteroid(this.childShape(),center,o.a);
+    Asteroid e = new Asteroid(this.childShape(),center.copy(),o.b);
+    Pair<Asteroid,Asteroid> g = new Pair(f,e);
+    return g;
+    
+  }
+  
+  
+  
+
 }
