@@ -14,7 +14,7 @@ class Breaker {
   float radius() {
     return 5;
   }
-  
+  //draws the breaker
   void render() {
     fill(255);
     stroke(0);
