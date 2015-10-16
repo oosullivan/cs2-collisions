@@ -3,17 +3,35 @@ class Player {
   float y;
   
   Player(float startx,float starty) {
-   startx = x; 
-   starty = y; 
+   x = startx; 
+   y = starty; 
   }
   
   void render() {
-   fill(150,25,25); 
-   triangle(x,y,(x - 5),(y - 5),(x + 5),(y + 5)); 
+   fill(200,0,0); 
+   triangle(x,y,(x - 10),(y + 15),(x + 10),(y + 15)); 
+    
+  }
+  
+  void update() {
+   if (keyPressed) { 
+     if (key == UP){
+       y = y - 5;
+     }
+   }
+   else if (keyPressed){ 
+     if (key == DOWN){
+     y = y + 5;
+     }
+   }
+   
+  }
+  
+    
     
   }
   
   
   
   
-} 
+ 

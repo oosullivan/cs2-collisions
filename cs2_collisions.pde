@@ -84,6 +84,7 @@ void draw() {
   }
 
   f.render();
+  f.update();
   
   // Update the positions of the Asteroids
   t = millis();
@@ -97,10 +98,12 @@ void draw() {
   
   
 }
+//returns the distance between two vectors
 public float distance(PVector c_,PVector v_){
   return(c_.dist(v_));
   
 }
+//checks if two asteroids are colliding returns true or false
 boolean colliding(Asteroid a,Breaker b){
    if(distance(a.center,b.center)<=a.radius() + b.radius()){
      return true;

@@ -45,15 +45,18 @@ class Asteroid {
   endShape(CLOSE);
 }
 
+  //draws the asteroid
   public void render() { 
    fill(10,10,150); 
    polygon(center.x,center.y,this.radius(),size);
   }
   
+  //returns the number of sides for the child asteroids
    int childShape() {
    return size-1;
   }
-  
+  //returns true or false based on if it can still split, which means it has 
+  //more than four sides
   boolean canSplit() {
     if (size > 4) {
       return true;
@@ -61,7 +64,7 @@ class Asteroid {
       return false;
     }
   }
-  
+  //finds the radius based on the number of sides
   float radius() {
    if (size == 4) {
      return 10;
@@ -79,7 +82,8 @@ class Asteroid {
      }
     
   }
-  
+  //returns the velocities of the two child asteroids by multiplying
+  //them by 1.1
   Pair childVelocities() {
    Pair<PVector, PVector> h;
    PVector v1 = PVector.mult(v.copy(),1.1);
@@ -90,7 +94,7 @@ class Asteroid {
    return h;
     
   }
-  
+  //draws the child asteroids using their new velocities
   Pair children() {
     Pair<PVector,PVector> o = childVelocities();
     Asteroid f = new Asteroid(this.childShape(),center,o.a);
